@@ -305,8 +305,105 @@ The proof effectively tells us that $k$ and $(n-k)$ as not just additive inverse
 Finally, We are looking for the smallest possible non trivial star. Since the generators are always paired up. We need $\phi(n) = 4$, so that two choices belongs to trivial star and other two are our desired. This happens when we have $n=5$, because $\phi(5) = 4$ Therefore, the smallest possible star is our familiar 5 pointed star.\\
 
 \newpage
-\section{Multiplicative Construction}
-In the previous section, we considered the successive elements in additive fashion to construct the pattern. How about trying to draw star polygons in a multiplicative fashion ?. This means, choose some label and repeatedly multiply it to reach all elements of the set. Clearly, we have to modify set of labels, since repeated multiplication goes to 1 instead of 0.\\[2mm]
-We can start the labels $\{1,2,3,\cdots,n\}$, and ask which choice of $k$, under repeated multiplication reaches all elements of this set. More formally, we are in fact looking at the set that forms a group under multiplication modulo $n$, denoted as $U(n) = \{x: \gcd(x,n) =1\}$, and asking, when is this group cyclic or posses some element upon repeated multiplication it can help to reach all others.\\[2mm]
-\textbf{]  This preparation of this material is on going. Last Updated: \today}
+\section{Multiplicative Construction and Isomorphism}
+In the previous section, we considered the successive elements in an additive fashion to construct the pattern. It's natural to ask, can we construct a star polygon in a multiplicative fashion ?. This means, starting with the labels $\{1,2,3,...,n-1\}$ and choosing some label to repeatedly multiply and reach all elements of the set to draw a star. It turns out that we cannot do this all the time, but it's possible when $n$ is some prime number. The interesting fact is that this construction doesn't even look anywhere close to a star until we apply some magic over it, the isomorphism.\\[2mm]
+Let us begin with $U(p)$, the of all positive integers less than $p$ and relatively prime to $p$.
+$$U(p) = \{x : \gcd(x,p) =1\} = \{1,2,...,p-1\}$$
+We can easily see that $U(p)$ is a group under multiplication modulo $p$. In general, $U(n)$ is not cyclic that is why we don't get star patterns all the time but when $n = p$, it's cyclic group.\\[2mm]
+Consider $U(11) = \{1,2,3,...,10\}$. Labels these points around a circle. We can verify that 7 is a generator of the group. Thus, compute the multiplicative powers of 7 in modulo 11 and join the labels. Connect 1 to 7, 7 to $7^2 = 5$, 5 to $7^3 = 2$, 2 to $7^4 = 4$, $\cdots$ , and 8 to $7^{10} = 1$ to obtain the Figure 2.1 
+
+\begin{center}
+	\begin{tikzpicture}
+		\def\circRadius{2.5cm} % Radius of the circle
+		\def\m{10} % Number of points
+		
+		% Draw the circle
+		\draw (0, 0) circle (\circRadius);
+		
+		% Calculate the angle between consecutive points
+		\pgfmathsetmacro{\angle}{360 / \m}
+		
+		% Place the points and label them in clockwise order
+		\foreach \i in {0, 1, ..., \numexpr\m-1} {
+			\pgfmathsetmacro{\pointAngle}{90 - \i * \angle}
+			\node[circle, fill, inner sep=1.5pt] at (\pointAngle:\circRadius) {};
+		}
+		
+		% Place labels outside the circle
+		\foreach \i in {1, 2, ..., \m} {
+			\pgfmathsetmacro{\labelAngle}{90 - (\i - 1) * \angle}
+			\node at (\labelAngle:\circRadius + 0.5cm) {\i};
+		}
+		
+		% Draw red lines following powers of 7 modulo 11
+		\draw[red, thick] (90 - 0 * \angle:\circRadius) -- (90 - 6 * \angle:\circRadius);  % 1 -> 7
+		\draw[red, thick] (90 - 6 * \angle:\circRadius) -- (90 - 4 * \angle:\circRadius);  % 7 -> 5
+		\draw[red, thick] (90 - 4 * \angle:\circRadius) -- (90 - 1 * \angle:\circRadius);  % 5 -> 2
+		\draw[red, thick] (90 - 1 * \angle:\circRadius) -- (90 - 2 * \angle:\circRadius);  % 2 -> 3
+		\draw[red, thick] (90 - 2 * \angle:\circRadius) -- (90 - 9 * \angle:\circRadius);  % 3 -> 10
+		\draw[red, thick] (90 - 9 * \angle:\circRadius) -- (90 - 3 * \angle:\circRadius);  % 10 -> 4
+		\draw[red, thick] (90 - 3 * \angle:\circRadius) -- (90 - 5 * \angle:\circRadius);  % 4 -> 6
+		\draw[red, thick] (90 - 5 * \angle:\circRadius) -- (90 - 8 * \angle:\circRadius);  % 6 -> 9
+		\draw[red, thick] (90 - 8 * \angle:\circRadius) -- (90 - 7 * \angle:\circRadius);  % 9 -> 8
+		\draw[red, thick] (90 - 7 * \angle:\circRadius) -- (90 - 0 * \angle:\circRadius);  % 8 -> 1
+		
+		\node[below] at (0,-3.4) {Fig 3.1};
+	\end{tikzpicture}
+\end{center}
+Clearly it doesn't look like a star, but let's relabel these points in some fashion preserving the multiplication operation\\[2mm]
+Let's observe, the following multiplication $8 = 7^{9}$ and $7 = 7^1$in $U(11)$
+$$7^{9} \cdot_{11} 7^ 1 = 7^{10} = 7^{0} = 1$$\\
+Notice that even though the multiplication is $U(11)$, in the exponents, an addition modulo 10 operation is happening under the hood. This means, the element $27^9$ in $U(11)$ can be corresponded to element 9 in $\mathbb{Z}_{}$. Therefore we expect a structural similarity between the groups $U(11)$ and $\mathbb{Z}_n$. This similarity can be established by an isomorphism.\\[2mm]
+Let's define the isomorphism,
+$$\phi(7^k\pmod{11}) = k \pmod{10}$$\\
+We have the following mappings from $\mathbb{Z}_{10}$ to $U(11)$. $0 \leftrightarrow 1, 1 \leftrightarrow 2, 2 \leftrightarrow 4, 3 \leftrightarrow 8, \cdots , 9 \leftrightarrow 6.$ 
+ 
+ \begin{tikzpicture}
+ 	\def\circRadius{2.5cm} % Radius of the circle
+ 	\def\m{10} % Number of points
+ 	\def\startLabel{1} % Starting label
+ 	
+ 	% Draw the circle
+ 	\draw (0, 0) circle (\circRadius);
+ 	
+ 	% Calculate the angle between consecutive points
+ 	\pgfmathsetmacro{\angle}{360 / \m}
+ 	
+ 	% Place the points and label them in clockwise order
+ 	\foreach \i in {0, 1, ..., \numexpr\m-1} {
+ 		\pgfmathsetmacro{\pointAngle}{90 - \i * \angle}
+ 		\node[circle, fill, inner sep=1.5pt] at (\pointAngle:\circRadius) {};
+ 	}
+ 	
+ 	% Place labels outside the circle
+ 	\foreach \i in {1, 2, ..., \m} {
+ 		\pgfmathsetmacro{\labelAngle}{90 - (\i - 1) * \angle}
+ 		\node at (\labelAngle:\circRadius + 0.5cm) {\i};
+ 	}
+ 	
+ 	\draw[red, thick] (90 - 0 * \angle:\circRadius) -- (90 - 1 * \angle:\circRadius);
+ 	\draw[red, thick] (90 - 1 * \angle:\circRadius) -- (90 - 3 * \angle:\circRadius);
+ 	\draw[red, thick] (90 - 3 * \angle:\circRadius) -- (90 - 7 * \angle:\circRadius);
+ 	\draw[red, thick] (90 - 4 * \angle:\circRadius) -- (90 - 7 * \angle:\circRadius);
+ 	\draw[red, thick] (90 - 4 * \angle:\circRadius) -- (90 - 9 * \angle:\circRadius);
+ 	\draw[red, thick] (90 - 9 * \angle:\circRadius) -- (90 - 8 * \angle:\circRadius);
+ 	\draw[red, thick] (90 - 8 * \angle:\circRadius) -- (90 - 6 * \angle:\circRadius);
+ 	\draw[red, thick] (90 - 6 * \angle:\circRadius) -- (90 - 2 * \angle:\circRadius);
+ 	\draw[red, thick] (90 - 2 * \angle:\circRadius) -- (90 - 5 * \angle:\circRadius);
+ 	\draw[red, thick] (90 - 5 * \angle:\circRadius) -- (90 - 0 * \angle:\circRadius);
+ 	
+ 	\node[below] at (0,-3.4) {Fig 2.1};
+ 	
+ 	\hspace{4cm} $\overset{\displaystyle\varphi}{\xrightarrow{\hspace{1cm}}}$
+ 
+ 
+ 	
+ 	
+ 	
+ \end{tikzpicture}
 \end{document}
+
+%We can think of collecting all the multiplicative inverses from $\mathbb{Z}_n$ and forming a group under multiplication. $U(n)$ doesn't always have an element called the primitive root which can generate all other elements. For example, $U(6)$ is not cyclic. Therefore we don't expect to draw star patterns all the time
+%
+%U(n)$ is not cyclic for any $n$, for example $U(6)$. Therefore, we don't expect to see star patterns all the time. It turns out that when $n = p$, where $p$ is some prime number. $U(p)$ is a cyclic group, or  This statement is better known as the Primitive Root Theorem\\[2mm]
+%onsider $U(11) = \{1,2,3,4,...,10\}$, choose $k =2$ %
