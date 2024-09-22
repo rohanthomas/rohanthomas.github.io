@@ -435,7 +435,7 @@ We have the following mappings from $\mathbb{Z}_{10}$ to $U(11)$. $0 \leftrighta
  \end{tikzpicture}
 
 To obtain the star polygon from the distorted figure, we first found the isomorphism, then moved the points around by preserving its corresponding edges.\\[2mm]
-In the above example, we were able to easily find out an isomorphism to reveal our original pattern because, we were able to easy find out a generator or primitive root of the group $U(p)$. However, In general, It isn't an easy task to find a generator of the group $U(p)$. This is because, finding out generator of a group is better known as the \textbf{Discrete Logarithm Problem}, and it is known to be computationally hard, which is indeed the backbone of cryptographic algorithms that safe guard our daily transactions and conversations.
+In the above example, we were able to easily find out an isomorphism to reveal our original pattern because, we were able to easy find out a generator or primitive root of the group $U(p)$. However, In general, It isn't an easy task to find a generator of the group $U(p)$. This is because, finding out generator of a group is better known as the \textbf{Discrete Logarithm Problem}, and it is known to be computationally hard, this hardness is the backbone of cryptographic algorithms that safe guard our daily transactions and conversations.
 
 \section{Star Figures: Cosets and Factor Group}
 
@@ -481,7 +481,7 @@ We can see when $k = 2$, we have $H = <2>$. Therefore, the components are $0+ H 
 If we were to collect all the cosets of group $\mathbb{Z}_n$ and under the operation coset-addition it becomes the factor group $\mathbb{Z}_n/<a> = \{0 + <a>, 1 + <a>, \cdots , (n-1) + <a>\}$. 
 
 \subsection{How many components are there in an $\{n/k\}$ Star Figure ?}
-We saw that every each component correspond to each coset which is in turn an element of the factor group. Therefore, the total number of components is the cardinality of the factor group. Let $n$ and $k$ be given. There are $$|\mathbb{Z}_n/<a>|$$ components in a star figure.
+We saw that every each component correspond to each coset which is in turn an element of the factor group. Therefore, the total number of components is the cardinality of the factor group. Let $n$ and $k$ be given. There are $|\mathbb{Z}_n/<a>|$ components in a star figure.
 \end{document}
 
 %We can think of collecting all the multiplicative inverses from $\mathbb{Z}_n$ and forming a group under multiplication. $U(n)$ doesn't always have an element called the primitive root which can generate all other elements. For example, $U(6)$ is not cyclic. Therefore we don't expect to draw star patterns all the time
