@@ -20,7 +20,7 @@
 \maketitle
 \section{Introduction}
 Consider the problem of drawing star patterns. If you are asked to draw a 5 pointed star pattern, it is relatively straight forward. How about an 8 pointed star pattern?. It could be challenging at first. To do this, start by drawing a circle and then mark equally spaced 8 points and label them 0, 1, 2, 3, $\cdots$ , 7.  Next, connect each point to another point which is at a fixed units away. For instance, let us decide to connect every point to points which are 3 units away. This means we can we connect 0 to 3, 3 to 6,$\cdots$,5 to 0 to obtain Fig 1.1. \\[2mm]
-On the other hand, if the choice is to connect every point to points that are 2 units away, this choice forms a star pattern having two distinct components. To draw this pattern, we can connect 0 to 2, 2 to 4,..., 6 to 0 for the first component, and then connect 1 to 3, 3 to 5, ..., 7 to 1 to obtain Fig 1.2. Notice that the choice of turning by 3 results in construction without lifting pen; such a pattern is called as a \textit{star polygon}. In contrast, when connecting 2 units away requires lifting the pen, and this pattern is referred to as a \textit{star figure}. This means, star patterns are generally classified into star polygons and star figures.\\[2mm]
+On the other hand, if the choice is to connect every point to points that are 2 units away, this choice forms a star pattern having two distinct components. To draw this pattern, we can connect 0 to 2, 2 to 4,..., 6 to 0 for the first component, and then connect 1 to 3, 3 to 5, ..., 7 to 1 to obtain . Notice that the choice of turning by 3 results in construction without lifting pen; such a pattern is called as a \textit{star polygon}. In contrast, when connecting 2 units away requires lifting the pen, and this pattern is referred to as a \textit{star figure}. This means, star patterns are generally classified into star polygons and star figures.\\[2mm]
 These patterns are commonly denoted using Schläfli symbol \{$n$/$k$\}, where $n$ is the number of vertices and $k$ is turning number. The star polygon obtained from connecting every third is denoted as $\{8/3\}$, while the star figure drawn by connecting every two units apart is denoted as $\{8/2\}$.
 
 \begin{tikzpicture}
@@ -356,7 +356,7 @@ $$7^{9} \cdot_{11} 7^ 1 = 7^{10} = 7^{0} = 1$$\\
 Notice that even though the multiplication is $U(11)$, in the exponents, an addition modulo 10 operation is happening under the hood. This means, the element $27^9$ in $U(11)$ can be corresponded to element 9 in $\mathbb{Z}_{}$. Therefore we expect a structural similarity between the groups $U(11)$ and $\mathbb{Z}_n$. This similarity can be established by an isomorphism.\\[2mm]
 Let's define the isomorphism,
 $$\phi(7^k\pmod{11}) = k \pmod{10}$$\\
-We have the following mappings from $\mathbb{Z}_{10}$ to $U(11)$. $0 \leftrightarrow 1, 1 \leftrightarrow 2, 2 \leftrightarrow 4, 3 \leftrightarrow 8, \cdots , 9 \leftrightarrow 6.$ 
+We have the following mappings from $\mathbb{Z}_{10}$ to $U(11)$. $0 \leftrightarrow 1, 1 \leftrightarrow 7, 2 \leftrightarrow 5, 3 \leftrightarrow 2, \cdots , 9 \leftrightarrow 8.$ 
  
  \begin{tikzpicture}
  	\def\circRadius{2.5cm} % Radius of the circle
@@ -394,13 +394,94 @@ We have the following mappings from $\mathbb{Z}_{10}$ to $U(11)$. $0 \leftrighta
  	
  	\node[below] at (0,-3.4) {Fig 2.1};
  	
- 	\hspace{4cm} $\overset{\displaystyle\varphi}{\xrightarrow{\hspace{1cm}}}$
- 
- 
+ 	\hspace{3.5cm} $\overset{\displaystyle\varphi}{\xrightarrow{\hspace{1cm}}}$
+ 	\hspace{4cm}
  	
- 	
- 	
+ 		\def\circRadius{2.5cm} % Radius of the circle
+ 		\def\n{10} % Number of points
+ 		\def\k{3} % Step size for connections
+ 		
+ 		% Define the custom label mapping (in correct order for indexing)
+ 		\def\labels{} % Custom mapping: 1 -> 7, 2 -> 5, etc.
+ 		\def\numerals{5,9,3}
+ 		% Draw the circle
+ 		\draw (0, 0) circle (\circRadius);
+ 		
+ 		% Calculate the angle between consecutive points
+ 		\pgfmathsetmacro{\angle}{360 / \n}
+ 		
+ 		% Place the points and label them in clockwise order using the custom labels
+ 		\foreach \i in {0, 1, ..., \numexpr\n-1} {
+ 			\pgfmathsetmacro{\pointAngle}{90 - \i * \angle}
+ 			\node[circle, fill, inner sep=1.5pt] at (\pointAngle:\circRadius) {};
+ 			
+ 			\pgfmathsetmacro{\labelValue}{int(mod(2^\i, 11))}
+ 			\node at (90 - \i * \angle:\circRadius + 0.5cm) {\labelValue};
+ 			
+ 			
+ 			
+ 			
+ 		}
+ 		
+ 		% Draw connections in additive modulo-n fashion
+ 		\foreach \i in {0, 1, ..., \numexpr\n-1} {
+ 			\pgfmathsetmacro{\next}{mod(\i + \k, \n)} % Next point in the sequence
+ 			\draw[red, thick] (90 - \i * \angle:\circRadius) -- (90 - \next * \angle:\circRadius);
+ 		}
+ 		
+ 		\node[below] at (0,-4) {Fig 2.3};
+
+
  \end{tikzpicture}
+
+To obtain the star polygon from the distorted figure, we first found the isomorphism, then moved the points around by preserving its corresponding edges.\\[2mm]
+In the above example, we were able to easily find out an isomorphism to reveal our original pattern because, we were able to easy find out a generator or primitive root of the group $U(p)$. However, In general, It isn't an easy task to find a generator of the group $U(p)$. This is because, finding out generator of a group is better known as the \textbf{Discrete Logarithm Problem}, and it is known to be computationally hard, which is indeed the backbone of cryptographic algorithms that safe guard our daily transactions and conversations.
+
+\section{Star Figures: Cosets and Factor Group}
+
+In the introduction, we saw that the patterns requiring us to lift the pen is known as star figures. In the section we will count the number of components in a star figure, this will help to visualize a factor group.\\[2mm]
+What's a coset of $H$ in $G$ generated by $'a'$ ?. Think about first picking a subgroup $H$ of $G$, then pick an another element $a'$ from $G$, translate each element of H using $'a'$ to get the coset $a + H$. For instance, $G = \mathbb{Z}_8$, $H = <2> = \{0,2,4,6\}$. The distinct cosets we can obtain are $0+<2>$ and $1+ <2>$. The key connection to the star figure is that each component corresponds to a coset. 
+\begin{center}
+\begin{tikzpicture}
+\def\circRadius{2.5cm} % Radius of the circle
+\def\m{8} % Number of points
+\def\startLabel{0} % Starting label
+
+% Draw the circle
+\draw (0, 0) circle (\circRadius);
+
+% Calculate the angle between consecutive points
+\pgfmathsetmacro{\angle}{360 / \m}
+
+% Place the points and label them in clockwise order
+\foreach \i in {0, 1, ..., \numexpr\m-1} {
+	\pgfmathsetmacro{\pointAngle}{90 - \i * \angle}
+	\node[circle, fill, inner sep=1.5pt] at (\pointAngle:\circRadius) {};
+}
+
+% Place labels outside the circle
+\foreach \i in {0, 1, ..., \numexpr\m-1} {
+	\node at (90 - \i * \angle:\circRadius + 0.5cm) {\i};
+}
+
+\draw[red, thick] (90 - 0 * \angle:\circRadius) -- (90 - 2* \angle:\circRadius);
+\draw[red, thick] (90 - 1 * \angle:\circRadius) -- (90 - 3* \angle:\circRadius);
+\draw[red, thick] (90 - 3* \angle:\circRadius) -- (90 - 5* \angle:\circRadius);
+\draw[red, thick] (90 - 5* \angle:\circRadius) -- (90 - 7* \angle:\circRadius);
+\draw[red, thick] (90 - 7* \angle:\circRadius) -- (90 - 9* \angle:\circRadius);
+\draw[red, thick] (90 - 2 * \angle:\circRadius) -- (90 - 4* \angle:\circRadius);
+\draw[red, thick] (90 - 4 * \angle:\circRadius) -- (90 - 6* \angle:\circRadius);
+\draw[red, thick] (90 - 6 * \angle:\circRadius) -- (90 - 0* \angle:\circRadius);
+
+
+\node[below] at (0,-3.4) {Fig 1.2 Star Figure \{8/2\}};
+\end{tikzpicture}
+\end{center}
+We can see when $k = 2$, we have $H = <2>$. Therefore, the components are $0+ H =\{0,2,4,6\}$ and $1 + H = \{1,3,5,7\}$\\[2mm]
+If we were to collect all the cosets of group $\mathbb{Z}_n$ and under the operation coset-addition it becomes the factor group $\mathbb{Z}_n/<a> = \{0 + <a>, 1 + <a>, \cdots , (n-1) + <a>\}$. 
+
+\subsection{How many components are there in an $\{n/k\}$ Star Figure ?}
+We saw that every each component correspond to each coset which is in turn an element of the factor group. Therefore, the total number of components is the cardinality of the factor group. Let $n$ and $k$ be given. There are $$|\mathbb{Z}_n/<a>|$$ components in a star figure.
 \end{document}
 
 %We can think of collecting all the multiplicative inverses from $\mathbb{Z}_n$ and forming a group under multiplication. $U(n)$ doesn't always have an element called the primitive root which can generate all other elements. For example, $U(6)$ is not cyclic. Therefore we don't expect to draw star patterns all the time

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.8.21)  22 SEP 2024 01:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.8.21)  22 SEP 2024 16:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -592,20 +592,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 301--306
 
  []
 
-[4] [5] [6] (main.aux)
+[4] [5] [6] [7] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 13496 strings out of 474542
- 276692 string characters out of 5744446
- 1944978 words of memory out of 5000000
- 35496 multiletter control sequences out of 15000+600000
+ 13621 strings out of 474542
+ 279322 string characters out of 5744446
+ 1949978 words of memory out of 5000000
+ 35621 multiletter control sequences out of 15000+600000
  566613 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,16n,107p,699b,669s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,16n,107p,692b,669s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\rtfbu\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1000.pk><C:/Users/rtfbu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx10.pfb><C:/Users/rtfbu/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -624,9 +624,9 @@ ublic/amsfonts/cm/cmsy10.pfb><C:/Users/rtfbu/AppData/Local/Programs/MiKTeX/font
 s/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/rtfbu/AppData/Local/Programs/MiK
 TeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/rtfbu/AppData/Local/Pro
 grams/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (6 pages, 197944 bytes).
+Output written on main.pdf (7 pages, 205283 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
+ 109 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
