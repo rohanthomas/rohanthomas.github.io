@@ -4,7 +4,7 @@
 
   * [Resume](README.md)
 * Blogs
-  * [Murder Mystery](/blogs/diff_apps.md)
+  * [Diff Equations: Murder Mystery](/blogs/diff_apps.md)
   * [Sieve using Inclusion-Exclusion](blogs/sieve.md)
   * <a href="https://rohanthomas.me/stars/main.pdf" target="_blank">Study on Star Pattern</a>
   * [Why - * - = + ?](/blogs/negativetimes.md)
