@@ -20,7 +20,7 @@
 - Awarded first prize in Inter-Collegiate Mathematics Quiz competition at University College, Thiruvananthapuram.  
 - Teaching Assistant for C, Python, and Sage Math during fifth and sixth semesters.  
 - Conducted a workshop on information retrieval techniques using Python for undergraduate mathematics students.  
-- Developed and maintained the college library website: [www.miclibrary.org](http://www.miclibrary.org).  
+- Developed and maintained the Mar Ivanios College Library website: [www.miclibrary.org](http://www.miclibrary.org).  
 
 ### **Higher Secondary Education (Grade 12)**  
 **St. John’s Model Higher Secondary School**  
