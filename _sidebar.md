@@ -1,12 +1,11 @@
 <!-- _navbar.md -->
 
-* Home
+* [Home](README.md)
 
-  * [Resume](README.md)
-* Blogs
-  * [Murder Mystery](/blogs/diff_apps.md)
-  * [Sieve using Inclusion-Exclusion](blogs/sieve.md)
+* [Blogs](blogs.md)
   * <a href="https://rohanthomas.me/stars/main.pdf" target="_blank">Study on Star Pattern</a>
   * [Why - * - = + ?](/blogs/negativetimes.md)
+  * [Can we count all reals ?](/blogs/uncountability_of_R)
+  * [Murder Mystery](/blogs/diff_apps.md)
+  * [More](blogs.md)
 
-  * <a href="https://rohanthomas.me/shortpptdiffie.html" target="_blank">Diffie Hellman PPT</a>
