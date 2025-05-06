@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Lessons - Sign Up</title>
+    <link rel="stylesheet" href="tutor-styles.css">
+    <!-- Cal.com embed code -->
+    <script type="text/javascript">
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+        Cal("init", "25min", {origin:"https://cal.com"});
+        
+        // Configure the calendar UI with theme colors to match the site
+        Cal.ns["25min"]("ui", {
+            "hideEventTypeDetails": false,
+            "layout": "month_view",
+            "styles": {
+                "branding": {
+                    "brandColor": "#6366f1", // Primary color from your CSS variables
+                    "lightColor": "#f9fafb", // Light color from your CSS variables
+                    "darkColor": "#111827"  // Dark color from your CSS variables
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <div class="logo">Rohan <span>Thomas</span></div>
+            <h1>Learn <span class="highlight">Math with Me</span></h1>
+            <p>Math tutoring for those who ask why, not just how. I help exam prep, like SAT, ACT, and more. Join me :)</p>
+            <button id="book-now" class="cta-button" 
+                data-cal-link="rohan-thomas-stnafb/25min" 
+                data-cal-namespace="25min" 
+                data-cal-config='{"layout":"month_view", "styles":{"branding":{"brandColor":"#6366f1","lightColor":"#f9fafb","darkColor":"#111827"}}}'
+            >Book a Free Lesson</button>
+            <div class="features">
+                <div class="feature">✓ Exam Prep</div>
+                <div class="feature">✓ Study Plan Preparation</div>
+                <div class="feature">✓ Flexible Scheduling</div>
+                <div class="feature">✓ Coding lessons</div>
+            </div>
+        </div>
+        <div class="right-panel">
+            <iframe 
+                class="youtube-video"
+                src="https://www.youtube.com/embed/-UoUoIFn_G8" 
+                title="Math Tutoring with Rohan" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Cal.com initialization script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the button click handler
+            const bookButton = document.getElementById('book-now');
+            if (bookButton) {
+                console.log('Cal.com booking button initialized');
+            }
+        });
+    </script>
+</body>
+</html>
