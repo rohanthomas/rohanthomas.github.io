@@ -8,5 +8,5 @@
   * [Can we count all reals ?](/blogs/uncountability_of_R)
   * [Diff Equations: Murder Mystery](/blogs/diff_apps.md)
   * [More](blogs.md)
-  * [Tutoring](tutoring.html)
+  * [Tutoring](https://rohanthomas.me/tutoring.html)
 
