@@ -505,6 +505,8 @@
             <div class="contact-list">
                 <a href="mailto:ping2rohan@gmail.com" class="interactive"><i class="fas fa-envelope"></i> ping2rohan@gmail.com</a>
                 <a href="http://www.rohanthomas.me" target="_blank" rel="noopener noreferrer" class="interactive"><i class="fas fa-globe"></i> www.rohanthomas.me</a>
+                <a href="tel:+919847120846" class="interactive"><i class="fas fa-phone-alt"></i> (+91) 9847120846</a>
+                <a href="#" class="interactive"><i class="fas fa-map-marker-alt"></i> Thiruvananthapuram, India</a>
             </div>
         </div>
         <a href="#education" class="scroll-down interactive">
@@ -563,21 +565,21 @@
         </section>
 
         <section id="writings" class="container">
-            <h2 class="section-title reveal">Blog Articles</h2>
+            <h2 class="section-title reveal">My blog Articles</h2>
             <div class="writings-grid">
                 <div class="card reveal">
                     <div class="card-header">
-                        <h3>Why negative times negative is a positive?</h3>
+                        <h3>Sieve of Eratosthenes: Time Complexity</h3>
                     </div>
                     <div class="card-content">
-                        <p>Exploring the reasoning behind a fundamental mathematical rule, moving from informal notions to the formal axioms of algebra.</p>
-                        <button class="read-more-btn interactive" id="read-more-blog-1">
+                        <p>An analysis of the ancient algorithm for finding prime numbers, using the Inclusion-Exclusion Principle.</p>
+                        <button class="read-more-btn interactive" id="read-more-blog-3">
                             <span>Read Full Article</span>
                             <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
                 </div>
-                 <div class="card reveal">
+                <div class="card reveal">
                     <div class="card-header">
                         <h3>Can we count all the real numbers?</h3>
                     </div>
@@ -591,11 +593,11 @@
                 </div>
                 <div class="card reveal">
                     <div class="card-header">
-                        <h3>Sieve of Eratosthenes: Time Complexity</h3>
+                        <h3>Why negative times negative is a positive?</h3>
                     </div>
                     <div class="card-content">
-                        <p>An analysis of the ancient algorithm for finding prime numbers, using the Inclusion-Exclusion Principle.</p>
-                        <button class="read-more-btn interactive" id="read-more-blog-3">
+                        <p>Exploring the reasoning behind a fundamental mathematical rule, moving from informal notions to the formal axioms of algebra.</p>
+                        <button class="read-more-btn interactive" id="read-more-blog-1">
                             <span>Read Full Article</span>
                             <i class="fas fa-arrow-right"></i>
                         </button>
@@ -620,24 +622,11 @@
             <h2 class="section-title reveal">Certifications</h2>
             <div class="card reveal">
                  <div class="card-header">
-                    <h3>Supervised Machine Learning</h3>
-                    <span class="meta">DeepLearning.AI (Coursera)</span>
-                </div>
-                <div class="card-content">
-                     <a href="https://www.coursera.org/account/accomplishments/verify/10091CN4OIG2?utm_source=mobile&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course" class="cert-link interactive" target="_blank" rel="noopener noreferrer">
-                        <span>View Certificate</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="card reveal">
-                 <div class="card-header">
                     <h3>Julia Scientific Programming</h3>
                     <span class="meta">University of Cape Town (Coursera)</span>
                 </div>
                 <div class="card-content">
-                     <a href="https://www.coursera.org/account/accomplishments/verify/J77ZXHEOMBNZ?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course" class="cert-link interactive" target="_blank" rel="noopener noreferrer">
+                     <a href="#" class="cert-link interactive" target="_blank" rel="noopener noreferrer">
                         <span>View Certificate</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
@@ -649,7 +638,7 @@
                     <span class="meta">Educative IO</span>
                 </div>
                  <div class="card-content">
-                     <a href="https://www.educative.io/verify-certificate/0g6xMWFMj8zy7DZM6ILZREA67GZrFP" class="cert-link interactive" target="_blank" rel="noopener noreferrer">
+                     <a href="#" class="cert-link interactive" target="_blank" rel="noopener noreferrer">
                         <span>View Certificate</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
@@ -659,6 +648,7 @@
     </main>
 
     <footer class="reveal">
+        <p>Local Time: <span id="footer-time" class="footer-time"></span></p>
         <p>&copy; 2025 Rohan Thomas. All Rights Reserved.</p>
     </footer>
 
@@ -738,48 +728,46 @@
                 <p class="author">Authored by: Rohan Thomas</p>
             </div>
             <div class="blog-body">
-                <p>Sieve of Eratosthenes is an ancient algorithm introduced by Greek mathematician Eratosthenes in the third century BC, used to find prime numbers up to a given number. In this material we will discuss this algorithm and determine the exact number of eliminations made.</p>
-                <div class="task-box"><strong>💡 Problem:</strong> Given $n \in \mathbb{N}$. List all the primes up to $n$.</div>
+                <p>Sieve of Eratosthenes is a simple and ancient algorithm introduced by greek mathematician Eratosthenes in the third century BC which is used to find the prime numbers upto a given number.</p>
+                <div class="task-box"><strong>Problem:</strong> Given $n \in \mathbb{N}$, List all the primes upto $n$.</div>
                 
                 <h2>Algorithm:</h2>
                 <ol>
-                    <li>List all integers from 2 to $n$</li>
-                    <li>Start with the smallest prime, set $p = 2$</li>
-                    <li>Eliminate all the proper multiples of $p$ which are less than $n$ such as $2p, 3p, 4p, . . .$</li>
-                    <li>Assign the value of $p$ to the smallest number next greater than $p$ which have been not eliminated, remove the multiples of that number</li>
-                    <li>Repeat the steps until $p \leq \sqrt{n}$</li>
+                    <li>List of all integers from 2 to $n$.</li>
+                    <li>Start with the smallest prime, set $p=2$.</li>
+                    <li>Eliminate all the proper multiples of $p$ which are less than $n$ such as $2p,3p,4p,\ldots$</li>
+                    <li>Assign the value of $p$ to the smallest number next greater than $p$ which have been not eliminated, remove the multiples of that number.</li>
+                    <li>Repeat the steps until $p \leq \sqrt{n}$.</li>
                 </ol>
-                <p>Let’s consider the following example of listing all the primes less than $n = 15$.</p>
-                <p>1. Generate a list of numbers from 2 to 15:</p>
-                <div class="number-grid">
+                <p>Let's consider the following example of listing all the primes less than $n=15$.</p>
+                <p>1. Generate a list of numbers from 2 to 15.</p>
+                 <div class="number-grid">
                     <span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
                 </div>
-                <p>2. Starting with the smallest prime $p = 2$, eliminate all multiples of 2:</p>
+                <p>2. Starting with the smallest prime $p=2$, eliminate all multiples of 2.</p>
                 <div class="number-grid">
                     <span>2</span><span>3</span><span>5</span><span>7</span><span>9</span><span>11</span><span>13</span><span>15</span>
                 </div>
-                <p>3. Assign the value of $p$ to the next prime, which is 3, (since $3 \leq \sqrt{15}$). Eliminate all the multiples of 3 to obtain:</p>
-                <div class="number-grid">
+                <p>3. Assign the value of $p$ to the next prime, which is 3, (since $3 \leq \sqrt{15}$). Eliminate all the multiples of 3 to obtain.</p>
+                 <div class="number-grid">
                     <span>2</span><span>3</span><span>5</span><span>7</span><span>11</span><span>13</span>
                 </div>
-                <p>4. When $p = 5$, the condition $p \leq \sqrt{15}$ is false as $5 > \sqrt{15}$. Thus, we exit the process, and now all the numbers in the list are prime numbers up to 15.</p>
+                <p>4. When $p=5$, the condition $p \leq \sqrt{n}$ is false as $5 > \sqrt{15}$. Thus we exit the process, and now all the numbers in the list are prime numbers up to 15.</p>
 
                 <h2>Time Complexity</h2>
-                <p>The goal is to compute the number of eliminations took place for a given input n. For simplicity let’s just assume that every elimination has some cost associated with it (this includes computing the product, comparisons, etc.).</p>
-                <p>Let’s first see how many eliminations have been taken place for some input n. Recall we continue the procedure until $p < \sqrt{n}$, so, the primes involved in the procedure are $\mathbb{P}=\{2,3,5,\ldots,p_m,\ldots ,p_e\}$.</p>
-                <p>When $p = 2$: $$ \left\lfloor\frac{n}{2}\right\rfloor - 1 \quad \text{eliminations made} $$</p>
-                <p>$p = 3$: since we already removed all the even multiples, we have: $$ \left\lfloor\frac{n}{3}\right\rfloor - 1 - \left\lfloor\frac{n}{2*3}\right\rfloor $$</p>
+                <p>The goal is to compute the number of eliminations took place for a given input $n$. For simplicity let's just assume that every elimination has some cost associated with it (this includes computing the product, comparisons, etc.).</p>
+                <p>Let's first see how many eliminations have been taken place for some input $n$. Recall we continue the procedure until $p < \sqrt{n}$, so the primes involved in the procedure are $\mathbb{P}=\{2,3,5,\ldots,p_m,\ldots ,p_e\}$.</p>
+                <p>When $p=2$: $$ \left\lfloor\frac{n}{2}\right\rfloor - 1 \quad \text{eliminations made} $$</p>
+                <p>$p=3$: since we already removed all the even multiples, we have: $$ \left\lfloor\frac{n}{3}\right\rfloor - 1 - \left\lfloor\frac{n}{2*3}\right\rfloor $$</p>
                 <p>$p=5$: there are $\lfloor{n/5}\rfloor$ multiples of 5, from this we need to remove the multiples of 5 which are either divisible by 2 or 3: $$ \left\lfloor\frac{n}{5}\right\rfloor - \left(\left\lfloor\frac{n}{2*5}\right\rfloor + \left\lfloor\frac{n}{3*5}\right\rfloor - \left\lfloor\frac{n}{2*5*3}\right\rfloor \right) - 1 $$</p>
-                <p>$p = 7$: $$ \left\lfloor\frac{n}{7}\right\rfloor - \left(\left\lfloor\frac{n}{2*7}\right\rfloor + \left\lfloor\frac{n}{3*7}\right\rfloor + \left\lfloor\frac{n}{5*7}\right\rfloor - \left\lfloor\frac{n}{2*7*3}\right\rfloor - \left\lfloor\frac{n}{2*5*7}\right\rfloor - \left\lfloor\frac{n}{3*5*7}\right\rfloor + \left\lfloor\frac{n}{2*3*5*7}\right\rfloor \right)- 1 $$</p>
+                <p>$p=7$: $$ \begin{aligned} &\left\lfloor\frac{n}{7}\right\rfloor - \left(\left\lfloor\frac{n}{2*7}\right\rfloor + \left\lfloor\frac{n}{3*7}\right\rfloor + \left\lfloor\frac{n}{5*7}\right\rfloor \right. \\ &\left. - \left\lfloor\frac{n}{2*7*3}\right\rfloor - \left\lfloor\frac{n}{2*5*7}\right\rfloor - \left\lfloor\frac{n}{3*5*7}\right\rfloor + \left\lfloor\frac{n}{2*3*5*7}\right\rfloor \right)- 1 \end{aligned} $$</p>
                 <p>We can easily note the connections to <strong>inclusion-exclusion principle</strong>. Let's generalize this to any arbitrary step involving $p_m$.</p>
-                <p>$p=p_m$</p>
-                <p>Consider the following sets, $A_{m_1}$= {$x:x$ is a multiple of  $p_m$ and 2}, $A_{m_{2}}$={$x: x$  is a multiple of $p_m$ and 3},  $A_{m_{4}}$={$x:x$  is a multiple of $p_m$ and 5}, $\cdots$ , $A_{m_n}$={$x: x$ is a multiple of $p_m$ and $p_{m-1}$}.</p>
-                <p>notice there are $\lfloor\frac{n}{p_m}\rfloor$ multiples of $p_n$, but we need remove multiples of $p_m$ which are divisible by either $2, 3, 5,\ldots,$ $p_{m-1}.$ This is exactly same as,
-                $$ \begin{aligned} &\left\lfloor\frac{n}{p_m}\right\rfloor -\left| \bigcup_{i=1}^{n}A_{m_i} \right| -1 \\  &=\left\lfloor\frac{n}{p_m}\right\rfloor -\left( \sum_{i=1}^n\left|A_{m_i}\right| -\sum_{i < j}\left|A_{m_i}\cap A_{m_j}\right| \right. \\  &\left. + \sum_{i<j<k}\left|A_{m_i}\cap A_{m_j}\cap A_{m_k}\right|-\cdots\ +(-1)^{n-1} \left|A_{m_1}\cap\cdots\cap A_{m_n}\right|\right) -1 \end{aligned} $$</p>
-                <p>Thus, for a given $n$, we can write the time complexity as
-                $$ T(n) = C \left( \left\lfloor\frac{n}{2}\right\rfloor + \left\lfloor\frac{n}{3}\right\rfloor + \cdots + \left\lfloor\frac{n}{p_e}\right\rfloor -\sum_{p \in \mathbb{P}}\left| \bigcup_{i=1}^{n}A_{m_i} \right| -1 \right) $$
-                where C is the cost per elimination</p>
-                <p>Here we obtained a more theoretical tighter run time than  $O(n\log \log n)$ counting the exact number of eliminations made. But in fact $T(n) \in  O(n\log \log n)$.</p>
+                <p>$p=p_m$:</p>
+                <p>Consider the following sets, $A_{m_1}=\{x:x$ is a multiple of $p_m$ and 2$\}$, $A_{m_{2}}=\{x: x$ is a multiple of $p_m$ and 3$\}$, $A_{m_{4}}=\{x:x$ is a multiple of $p_m$ and 5$\}$, \ldots , $A_{m_n}=\{x: x$ is a multiple of $p_m$ and $p_{m-1}\}$.</p>
+                <p>notice there are $\lfloor\frac{n}{p_m}\rfloor$ multiples of $p_n$, but we need remove multiples of $p_m$ which are divisible by either 2, 3, 5,\ldots, $p_{m-1}$. This is exactly same as,
+                $$ \begin{aligned} &\left\lfloor\frac{n}{p_m}\right\rfloor -\left| \bigcup_{i=1}^{n}A_{m_i} \right| -1 \\ &=\left\lfloor\frac{n}{p_m}\right\rfloor -\left( \sum_{i=1}^n\left|A_{m_i}\right| -\sum_{i < j}\left|A_{m_i}\cap A_{m_j}\right| \right. \\ &+ \left. \sum_{i<j<k}\left|A_{m_i}\cap A_{m_j}\cap A_{m_k}\right|-\cdots\ +(-1)^{n-1} \left|A_{m_1}\cap\cdots\cap A_{m_n}\right|\right) -1 \end{aligned} $$</p>
+                <p>Thus for a given $n$, we can write the time complexity as, $$ T(n) = C \left( \left\lfloor\frac{n}{2}\right\rfloor + \left\lfloor\frac{n}{3}\right\rfloor + \cdots + \left\lfloor\frac{n}{p_e}\right\rfloor -\sum_{p \in \mathbb{P}}\left| \bigcup_{i=1}^{n}A_{m_i} \right| -1 \right) $$ where $C$ is the cost per elimination.</p>
+                <p>Here we obtained a more theoretical tighter run time than $O(n\log \log n)$ counting the exact number of eliminations made. In fact $T(n) \in O(n\log \log n)$.</p>
             </div>
         </div>
     </div>
@@ -802,23 +790,23 @@
                 <p>We start with $\frac{dT}{dt} = -k \,(T(t) - T_{a})$ and separate the variables to get $\frac{dT}{T - T_a} = -k \, dt$. Integrating both sides gives $\ln |T - T_a| = -kt + C$. Exponentiating both sides yields $|T - T_a| = e^{C}e^{-kt}$. Since the body is cooling, $T > T_a$, so we can remove the absolute value. Letting $A = e^C$, we have the general solution:
                 $$T(t) = T_{a} + Ae^{-kt}$$
                 Using the initial condition $T(0) = T_{0}$, we find $A = T_0 - T_{a}$, which gives the final form:
-                $$ \boxed{T(t) = T_{a} + (T_0 - T_{a}) e^{-kt}} $$
+                $$\boxed{T(t) = T_{a} + (T_0 - T_{a}) e^{-kt}}$$
                 </p>
 
                 <h3>Solving the Mystery</h3>
                 <p>Soon after the person is deceased his body starts to cool down from an initial temperature $T_0 = 37°C$ to the ambient temperature, $T_a = 28°C$. Our equation becomes:
                 $$ T(t) = 28 + (37 - 28) e^{-kt} = 28 + 9e^{-kt}$$
                 Let $\tau$ be the time in hours that passed between the murder and the first observation at 4:30 AM.
-                $$ T(\tau) = 28 + 9e^{-k \tau} = 33 \quad (1) $$
+                $$T(\tau) = 28 + 9e^{-k \tau} = 33 \quad (1)$$
                 The second observation was 1.5 hours later:
-                $$ T(\tau + 1.5) = 28 + 9e^{-k (\tau + 1.5)} = 31 \quad (2) $$
+                $$T(\tau + 1.5) = 28 + 9e^{-k (\tau + 1.5)} = 31 \quad (2)$$
                 From (1), we get $9e^{-k\tau} = 5$, so $e^{-k\tau} = 5/9$.
                 From (2), we get $9e^{-k\tau}e^{-1.5k} = 3$, so $e^{-k\tau}e^{-1.5k} = 1/3$.
                 Substituting $e^{-k\tau} = 5/9$ into the second equation gives $(5/9)e^{-1.5k} = 1/3$, which simplifies to $e^{-1.5k} = 3/5$.
                 Taking the natural logarithm, we find $-1.5k = \ln(3/5)$, so $k = -\frac{\ln(3/5)}{1.5} \approx 0.34055$.
                 </p>
                 <p>Now we solve for $\tau$ using $e^{-k\tau} = 5/9$:
-                $$ -k\tau = \ln(5/9) \implies \tau = -\frac{\ln(5/9)}{k} \approx -\frac{\ln(5/9)}{0.34055} \approx 1.73 \text{ hours} $$
+                $$-k\tau = \ln(5/9) \implies \tau = -\frac{\ln(5/9)}{k} \approx -\frac{\ln(5/9)}{0.34055} \approx 1.73 \text{ hours}$$
                 This means the murder took place 1.73 hours (1 hour and 44 minutes) before the first observation at 4:30 AM. Thus, the murder happened at approximately <strong>2:46 AM</strong>.
                 </p>
 
@@ -884,15 +872,17 @@
             // --- Live Clock in Footer ---
             const timeElement = document.getElementById('footer-time');
             function updateTime() {
-                const now = new Date();
-                const options = {
-                    timeZone: 'Asia/Kolkata',
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    second: '2-digit',
-                    hour12: true
-                };
-                timeElement.textContent = now.toLocaleTimeString('en-US', options) + ' IST';
+                if (timeElement) {
+                    const now = new Date();
+                    const options = {
+                        timeZone: 'Asia/Kolkata',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        second: '2-digit',
+                        hour12: true
+                    };
+                    timeElement.textContent = now.toLocaleTimeString('en-US', options) + ' IST';
+                }
             }
             setInterval(updateTime, 1000);
             updateTime();
@@ -902,6 +892,8 @@
                 const modal = document.getElementById(modalId);
                 const openBtn = document.getElementById(openBtnId);
                 const closeBtn = modal.querySelector('.modal-close');
+
+                if (!openBtn) return; // Exit if the button doesn't exist
 
                 const openModal = () => {
                     modal.classList.add('visible');
@@ -931,3 +923,4 @@
     </script>
 </body>
 </html>
+
